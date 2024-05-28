@@ -12,6 +12,7 @@ const CatchAsyncErrors = require("../../Middleware/CatchAsyncErrors");
 router.route("/login").post(
   catchAsynErrors(async (req, res, next) => {
     try {
+      console.log(req.body)
       const { email, password } = req.body;
       if (!email || !password) {
         return next(new ErrorHandler("Please Provide All Fields", 400));
